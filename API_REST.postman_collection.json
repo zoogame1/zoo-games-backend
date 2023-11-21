@@ -1,0 +1,806 @@
+{
+	"info": {
+		"_postman_id": "25a6f553-1da6-4767-8013-d5900eafec1d",
+		"name": "API_REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16394368"
+	},
+	"item": [
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Criar Usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"valido26\",\r\n    \"email\": \"valido26@email.com\",\r\n    \"password\":\"Senha123*\",\r\n    \"cashier\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user",
+							"host": [
+								"{{baseUrl}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logar",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"email\": \"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Meu Perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}profile",
+							"host": [
+								"{{baseUrl}}profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Perfis de Todos Páginados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}user/list/all/0",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"list",
+								"all",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Perfis por nome",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}user/all/admin",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"all",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar saldo do perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"new_cash\" : 7000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/1",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jogos",
+			"item": [
+				{
+					"name": "Criar Jogo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numberBet\": 777,\r\n    \"dateBet\": \"2000/11/22\",\r\n    \"timeBet\": \"18:00:00\",\r\n    \"moneyBet\": \"2500\",\r\n    \"modality\": \"1/5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}game/2",
+							"host": [
+								"{{baseUrl}}game"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Jogos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}games",
+							"host": [
+								"{{baseUrl}}games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Jogos por Grupo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}games/groups/1",
+							"host": [
+								"{{baseUrl}}games"
+							],
+							"path": [
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Jogos por Grupo Paginado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}games/groups/1/7",
+							"host": [
+								"{{baseUrl}}games"
+							],
+							"path": [
+								"groups",
+								"1",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Jogo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": 1,\r\n    \"numberBet\": 11,\r\n    \"dateBet\": \"2000/08/20\",\r\n    \"moneyBet\": \"1500\",\r\n    \"modality\": \"...1°C\",\r\n    \"timeBet\": \"16:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}game/1",
+							"host": [
+								"{{baseUrl}}game"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Jogo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}game/6",
+							"host": [
+								"{{baseUrl}}game"
+							],
+							"path": [
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por 1 Jogo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY4NTU4MTcwLCJleHAiOjE2Njg1ODY5NzB9.cxJ0S-nkJy7RIA6fL6cmbYmlggR7UeaVGBhdFwUoyDM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}game/1",
+							"host": [
+								"{{baseUrl}}game"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Vencedores [Validação]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY4NTU4MTcwLCJleHAiOjE2Njg1ODY5NzB9.cxJ0S-nkJy7RIA6fL6cmbYmlggR7UeaVGBhdFwUoyDM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"numberBet\": 55,\r\n    \"dateBet\": \"2000/11/22\",\r\n    \"timeBet\": \"18:00:00\", \r\n    \"modality\": \"1/5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}games/winners/validated",
+							"host": [
+								"{{baseUrl}}games"
+							],
+							"path": [
+								"winners",
+								"validated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar vencedores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY4NTU4MTcwLCJleHAiOjE2Njg1ODY5NzB9.cxJ0S-nkJy7RIA6fL6cmbYmlggR7UeaVGBhdFwUoyDM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"numberBet\": 55,\r\n    \"dateBet\": \"2000/11/22\",\r\n    \"timeBet\": \"18:00:00\", \r\n    \"modality\": \"1/5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}games/winners",
+							"host": [
+								"{{baseUrl}}games"
+							],
+							"path": [
+								"winners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Vencedores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY4NTU4MTcwLCJleHAiOjE2Njg1ODY5NzB9.cxJ0S-nkJy7RIA6fL6cmbYmlggR7UeaVGBhdFwUoyDM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}games/winners",
+							"host": [
+								"{{baseUrl}}games"
+							],
+							"path": [
+								"winners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Relatorio Modalidade 1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc2MzI2ODI0LCJleHAiOjE2NzYzNTU2MjR9.bfPqqMihmaUWEZBxwnQWdTNrX77WRkKeREUlNPs7jbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2023-02-10\",\r\n    \"hour\": \"21:00:00\",\r\n    \"category\": \"1\",\r\n    \"number\": \"4552\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}games/report/report_modality_one",
+							"host": [
+								"{{baseUrl}}games"
+							],
+							"path": [
+								"report",
+								"report_modality_one"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogo em todo banco",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grupos",
+			"item": [
+				{
+					"name": "Favoritar jogos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_favorite\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}group/favorite/100022",
+							"host": [
+								"{{baseUrl}}group"
+							],
+							"path": [
+								"favorite",
+								"100022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar grupos de jogos maiores de dez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}group/search_more_ten/all/0",
+							"host": [
+								"{{baseUrl}}group"
+							],
+							"path": [
+								"search_more_ten",
+								"all",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar grupo de jogos geral",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/group/100256",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"group",
+								"100256"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resultados",
+			"item": [
+				{
+					"name": "Listar Resultado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc1ODAwNjI2LCJleHAiOjE2NzU4Mjk0MjZ9.5xQm77DB4Ir6avU-r9suf6LEvwyc_FL01eQiBDXmyxc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}result/all/2023-01-31",
+							"host": [
+								"{{baseUrl}}result"
+							],
+							"path": [
+								"all",
+								"2023-01-31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Resultado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjczOTc2OTIzLCJleHAiOjE2NzQwMDU3MjN9.aHZIDBGeyJ3LfYMK5tyczH_V3ibono_qJW5Y0hANeVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numberBet\": 777,\r\n    \"dateBet\": \"2000/11/22\",\r\n    \"timeBet\": \"18:00:00\", \r\n    \"modality\": \"1/5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}result",
+							"host": [
+								"{{baseUrl}}result"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Black List",
+			"item": [
+				{
+					"name": "Numeros - Script - Criar numeros na tabela",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/numbers/create_all_numbers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"numbers",
+								"create_all_numbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Numeros - Script - Criar numeros na tabela Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImlhdCI6MTY4NDE3MDc4MSwiZXhwIjoxNjg0MTk5NTgxfQ.YU9hBuBeT3i61LopMrGf6zlnrlcrDgKgnNUL7RNFM48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/black_list/search_all_records",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"black_list",
+								"search_all_records"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Numeros - Atualizar Numeros - com base em ontem para daqui a 20",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/numbers/update_day_numbers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"numbers",
+								"update_day_numbers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
